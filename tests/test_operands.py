@@ -1,4 +1,7 @@
+from unittest.mock import patch
+
 from src.pytemplate.domain.models import Operands, operands_factory
+from src.pytemplate.entrypoints.cli.main import main
 from src.pytemplate.service.calculator import Calculator
 
 
@@ -29,4 +32,28 @@ def test_calculator_divide():
 
 def test_calculator_mult():
     calculator = Calculator()
-    assert calculator.multiply(operands_factory(6, 3)) == 18
+    assert calculator.multiply(operands_factory(4, 3)) == 12
+
+
+def test_main_add():
+    with patch("builtins.input", return_value="12 12 add") as mult_mock:
+        result = main()
+        assert result == 24
+
+
+def test_main_divide():
+    with patch("builtins.input", return_value="12 12 divide") as mult_mock:
+        result = main()
+        assert result == 1
+
+
+def test_main_subtract():
+    with patch("builtins.input", return_value="24 12 subtract") as mult_mock:
+        result = main()
+        assert result == 12
+
+
+def test_main_multiply():
+    with patch("builtins.input", return_value="4 12 multiply") as mult_mock:
+        result = main()
+        assert result == 48
