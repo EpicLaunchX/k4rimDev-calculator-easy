@@ -35,25 +35,25 @@ def test_calculator_mult():
     assert calculator.multiply(operands_factory(4, 3)) == 12
 
 
-@patch("builtins.input", return_value="12 12 add")
-def test_main_add(mock_input):
-    result = main()
-    assert result == 24
+def test_main_add():
+    with patch("builtins.input", return_value="12 12 add") as mult_mock:
+        result = main()
+        assert result == 24
 
 
-@patch("builtins.input", return_value="12 12 divide")
-def test_main_divide(mock_input):
-    result = main()
-    assert result == 1
+def test_main_divide():
+    with patch("builtins.input", return_value="12 12 divide") as mult_mock:
+        result = main()
+        assert result == 1
 
 
-@patch("builtins.input", return_value="24 12 subtract")
-def test_main_subtract(mock_input):
-    result = main()
-    assert result == 12
+def test_main_subtract():
+    with patch("builtins.input", return_value="24 12 subtract") as mult_mock:
+        result = main()
+        assert result == 12
 
 
-@patch("builtins.input", return_value="4 12 multiply")
-def test_main_multiply(mock_input):
-    result = main()
-    assert result == 48
+def test_main_multiply():
+    with patch("builtins.input", return_value="4 12 multiply") as mult_mock:
+        result = main()
+        assert result == 48
