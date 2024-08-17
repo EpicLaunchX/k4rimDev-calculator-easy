@@ -3,17 +3,17 @@ from src.pytemplate.service.calculator import Calculator
 
 
 def main():
-    first_operand, second_operand, operation = tuple(input().split())
+    first_operand, second_operand, action = tuple(input().split())
 
     operands = operands_factory(int(first_operand), int(second_operand))
     calculator = Calculator()
-    if operation == "add":
+    if action == "add":
         return calculator.add(operands)
-    elif operation == "divide":
+    elif action == "divide":
         return calculator.divide(operands)
-    elif operation == "subtract":
+    elif action == "subtract":
         return calculator.subtract(operands)
-    elif operation == "multiply":
+    elif action == "multiply":
         return calculator.multiply(operands)
     else:
         return "Wrong operation"
