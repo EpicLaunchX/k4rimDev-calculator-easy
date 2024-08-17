@@ -5,7 +5,7 @@ from src.pytemplate.service.calculator import Calculator
 def main():
     first_operand, second_operand, operation = tuple(input().split())
 
-    operands = operands_factory(first_operand, second_operand)
+    operands = operands_factory(int(first_operand), int(second_operand))
     calculator = Calculator()
     if operation == "add":
         return calculator.add(operands)
