@@ -29,4 +29,4 @@ def test_calculator_divide():
 
 def test_calculator_mult():
     calculator = Calculator()
-    assert calculator.multiply(operands_factory(6, 3)) == 18
+    assert calculator.multiply(operands_factory(4, 3)) == 12
