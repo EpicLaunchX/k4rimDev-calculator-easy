@@ -36,6 +36,24 @@ def test_calculator_mult():
 
 
 @patch("builtins.input", return_value="12 12 add")
-def test_main(mock_input):
+def test_main_add(mock_input):
     result = main()
     assert result == 24
+
+
+@patch("builtins.input", return_value="12 12 divide")
+def test_main_divide(mock_input):
+    result = main()
+    assert result == 1
+
+
+@patch("builtins.input", return_value="24 12 subtract")
+def test_main_subtract(mock_input):
+    result = main()
+    assert result == 12
+
+
+@patch("builtins.input", return_value="4 12 multiply")
+def test_main_multiply(mock_input):
+    result = main()
+    assert result == 48
